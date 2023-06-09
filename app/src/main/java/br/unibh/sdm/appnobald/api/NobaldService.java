@@ -65,5 +65,5 @@ public interface NobaldService {
     Call<Cliente> atualizaCliente(@Path("id") Long id, @Body Cliente cliente);
 
     @DELETE("cliente/{id}")
-    Call<Boolean> excluiCliente(@Path("id") Long id);
+    Call<Void> excluiCliente(@Path("id") Long id);
 }

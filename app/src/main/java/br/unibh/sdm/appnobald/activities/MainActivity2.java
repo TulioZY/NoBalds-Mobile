@@ -13,11 +13,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 import br.unibh.sdm.appnobald.entidades.Barbeiro;
 import br.unibh.sdm.appnobald.entidades.BarbeiroAdapter;
 import br.unibh.sdm.appnobald.entidades.Servico;
+import br.unibh.sdm.appnobald.activities.FormularioActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
     private Button buttonMostrarLista;
     private Button buttonMostrarLista2;
     private Button buttonMostrarClientes;
+    private Button floatingActionButton;
 
 
     @Override
@@ -46,6 +51,17 @@ public class MainActivity2 extends AppCompatActivity {
 
         listViewListaServicos.setVisibility(View.GONE);
         buttonMostrarLista2.setVisibility(View.GONE);
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Iniciar a Activity de criação de cliente
+                Intent intent = new Intent(MainActivity2.this, FormularioActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         buttonMostrarLista.setOnClickListener(new View.OnClickListener() {
             @Override
