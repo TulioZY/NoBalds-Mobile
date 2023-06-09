@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Lista de Membros");
         setContentView(R.layout.activity_main2);
         service = RestServiceGenerator.createService(NobaldService.class, "http://lbnobald-1018607656.us-east-1.elb.amazonaws.com/nobald-api/");
 
@@ -141,5 +142,12 @@ public class MainActivity2 extends AppCompatActivity {
                 Log.e("Error", "" + t.getMessage());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        buscaServicos();
+        buscaBarbeiros();
     }
 }
